@@ -1,325 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lester's Apps | apps for people</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-    background:#eef3f8;
-    color:#2d3748;
-    line-height:1.6;
-}
-
-/* ---------------- HERO ---------------- */
-
-.hero{
-
-    background:linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f8fafc 60%,
-        #eef3f8 100%
-    );
-
-    padding:70px 20px 140px;
-    text-align:center;
-
-    border-bottom:1px solid #d9e2ec;
-
-}
-
-.hero img{
-
-    width:520px;
-    max-width:92%;
-    height:auto;
-
-    margin-bottom:35px;
-
-}
-
-.hero p{
-
-    max-width:760px;
-
-    margin:auto;
-
-    font-size:1.35rem;
-
-    color:#32455d;
-
-    line-height:1.6;
-
-}
-
-/* ---------------- CONTENT ---------------- */
-
-.container{
-
-    width:min(1200px,92%);
-    margin:auto;
-
-}
-
-/* pull cards upward */
-
-.apps{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:30px;
-
-    margin-top:-70px;
-
-    margin-bottom:80px;
-
-}
-
-/* ---------------- CARDS ---------------- */
-
-.card{
-
-    background:white;
-
-    border-radius:18px;
-
-    padding:32px;
-
-    box-shadow:
-        0 14px 35px rgba(20,40,70,.08);
-
-    transition:.25s;
-
-}
-
-.card:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:
-        0 20px 45px rgba(20,40,70,.12);
-
-}
-
-.card h2{
-
-    color:#1d3557;
-
-    font-size:2rem;
-
-    margin-bottom:18px;
-
-}
-
-.card p{
-
-    color:#5d6673;
-
-    font-size:1.1rem;
-
-    margin-bottom:28px;
-
-}
-
-.button{
-
-    display:inline-block;
-
-    background:#1d3557;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:12px 24px;
-
-    border-radius:10px;
-
-    font-weight:600;
-
-}
-
-.button:hover{
-
-    background:#284c7a;
-
-}
-
-/* ---------------- FOOTER ---------------- */
-
-footer{
-
-    text-align:center;
-
-    padding:35px;
-
-    color:#6b7280;
-
-    border-top:1px solid #d9e2ec;
-
-    font-size:.95rem;
-
-}
-
-/* ---------------- MOBILE ---------------- */
-
-@media (max-width:768px){
-
-.hero{
-
-    padding:45px 20px 100px;
-
-}
-
-.hero img{
-
-    width:360px;
-
-}
-
-.hero p{
-
-    font-size:1.05rem;
-
-}
-
-.apps{
-
-    margin-top:-50px;
-
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lester's Apps | Apps for People</title>
+
+  <meta
+    name="description"
+    content="Problem-solving software for gardeners, potters, investors, and radio enthusiasts."
+  >
+
+  <style>
+    :root {
+      --navy: #10233d;
+      --navy-light: #1d3557;
+      --slate: #526b82;
+      --page-bg: #eef3f8;
+      --card-bg: #ffffff;
+      --text: #26364d;
+      --muted: #647184;
+      --border: rgba(255, 255, 255, 0.35);
+      --shadow: 0 16px 38px rgba(16, 35, 61, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* ---------- TOP NAVIGATION ---------- */
+
+    .topbar {
+      width: 100%;
+      min-height: 84px;
+      background: #121a26;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .nav-container {
+      width: min(1380px, 90%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .nav-brand {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .nav-brand strong {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-brand span {
+      margin-top: 6px;
+      color: #c8d0da;
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #f4f7fb;
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      opacity: 0.7;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 125px;
+
+      background:
+        radial-gradient(
+          circle at 50% 25%,
+          rgba(255, 255, 255, 0.1),
+          transparent 38%
+        ),
+        linear-gradient(
+          135deg,
+          #0b1b31 0%,
+          #183153 44%,
+          #526b82 100%
+        );
+
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.09;
+
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.35) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.35) 1px,
+          transparent 1px
+        );
+
+      background-size: 46px 46px;
+    }
+
+    .hero-content {
+      width: min(980px, 100%);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-logo {
+      display: block;
+      width: min(690px, 88vw);
+      height: auto;
+      margin: 0 auto 36px;
+      background: #ffffff;
+    }
+
+    .hero-copy {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: clamp(1.15rem, 2.1vw, 1.7rem);
+      line-height: 1.55;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .hero-actions {
+      margin-top: 42px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hero-button {
+      min-width: 190px;
+      padding: 14px 22px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero-button:hover,
+    .hero-button:focus-visible {
+      background: #ffffff;
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- APPLICATIONS ---------- */
+
+    .applications {
+      padding: 88px 24px 100px;
+      background:
+        linear-gradient(
+          180deg,
+          #f6f9fc 0%,
+          var(--page-bg) 100%
+        );
+    }
+
+    .section-container {
+      width: min(1240px, 92%);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-heading p {
+      color: var(--slate);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h1 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.2;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(16, 35, 61, 0.06);
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 45px rgba(16, 35, 61, 0.16);
+    }
+
+    .card h2 {
+      color: var(--navy);
+      font-size: 1.55rem;
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .card p {
+      color: #5c6673;
+      font-size: 1.02rem;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .card-button {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 11px 20px;
+      border-radius: 8px;
+      background: var(--navy-light);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .card-button:hover,
+    .card-button:focus-visible {
+      background: #294c76;
+      transform: translateY(-1px);
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about {
+      background: #ffffff;
+      padding: 88px 24px;
+    }
+
+    .about-inner {
+      width: min(850px, 92%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-inner h2 {
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 20px;
+    }
+
+    .about-inner p {
+      color: #596576;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact {
+      background: #dfe7ef;
+      padding: 78px 24px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: var(--navy);
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      color: #566476;
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: var(--navy);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .contact a:hover,
+    .contact a:focus-visible {
+      background: #294c76;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: #121a26;
+      color: #d4dbe4;
+      font-size: 0.92rem;
+    }
+
+    /* ---------- TABLET ---------- */
+
+    @media (max-width: 980px) {
+      .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 720px) {
+      .topbar {
+        min-height: auto;
+        padding: 20px 0;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+
+      .nav-links a {
+        font-size: 0.73rem;
+      }
+
+      .hero {
+        min-height: 560px;
+        padding: 64px 18px 90px;
+      }
+
+      .hero-logo {
+        width: min(560px, 96vw);
+        margin-bottom: 28px;
+      }
+
+      .hero-copy {
+        font-size: 1.08rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-button {
+        width: min(310px, 100%);
+      }
+
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
+  <header class="topbar">
+    <nav class="nav-container" aria-label="Main navigation">
 
-<img src="images/LestersappsLogo.png" alt="Lester's Apps">
+      <a class="nav-brand" href="#home">
+        <strong>Lester's Apps</strong>
+        <span>Lester Morris</span>
+      </a>
 
-<p>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#applications">Apps</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#updates">Updates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
 
-Problem-solving software for gardeners,
-potters,
-investors,
-and radio enthusiasts.
-
-</p>
-
-</section>
-
-
-<div class="container">
-
-<section class="apps">
-
-<div class="card">
-
-<h2>🌱 Garden Journal</h2>
-
-<p>
-
-Plan, organize, and manage your garden
-throughout every season.
-
-</p>
-
-<a href="#" class="button">Learn More</a>
-
-</div>
+    </nav>
+  </header>
 
 
-<div class="card">
+  <main>
 
-<h2>🏺 Clay Studio Manager</h2>
+    <section class="hero" id="home">
 
-<p>
+      <div class="hero-content">
 
-Studio management software built specifically
-for ceramic artists and teaching studios.
+        <img
+          class="hero-logo"
+          src="images/LestersappsLogo.png"
+          alt="Lester's Apps — apps for people"
+        >
 
-</p>
+        <p class="hero-copy">
+          Problem-solving software for gardeners, potters,
+          investors, and radio enthusiasts.
+        </p>
 
-<a href="#" class="button">Learn More</a>
+        <div class="hero-actions">
 
-</div>
+          <a class="hero-button" href="#applications">
+            Explore the Apps
+          </a>
 
+          <a class="hero-button" href="#about">
+            About Lester
+          </a>
 
-<div class="card">
+          <a class="hero-button" href="#updates">
+            Latest Updates
+          </a>
 
-<h2>📈 Investing Copilot</h2>
+        </div>
 
-<p>
+      </div>
 
-Advanced workstation-style analytics
-for investors researching markets
-and hard assets.
-
-</p>
-
-<a href="#" class="button">Learn More</a>
-
-</div>
-
-
-<div class="card">
-
-<h2>🏛 Congressional Trades</h2>
-
-<p>
-
-Track congressional financial disclosures
-with research and analytical tools.
-
-</p>
-
-<a href="#" class="button">Learn More</a>
-
-</div>
+    </section>
 
 
-<div class="card">
+    <section class="applications" id="applications">
 
-<h2>📡 WaveDecoder</h2>
+      <div class="section-container">
 
-<p>
+        <div class="section-heading">
+          <p>Applications</p>
+          <h1>Tools built for real interests</h1>
+        </div>
 
-Decode CW and RTTY transmissions
-while exploring the fascinating
-world of shortwave radio.
 
-</p>
+        <div class="apps-grid">
 
-<a href="#" class="button">Learn More</a>
+          <article class="card">
 
-</div>
+            <h2>🌱 Garden Journal</h2>
 
-</section>
+            <p>
+              Plan, organize, and manage your garden
+              throughout every season.
+            </p>
 
-</div>
+            <a
+              href="#"
+              class="card-button"
+              aria-label="Learn more about Garden Journal"
+            >
+              Learn More
+            </a>
 
-<footer>
+          </article>
 
-© 2026 Lester's Apps • Built in Philadelphia
 
-</footer>
+          <article class="card">
+
+            <h2>🏺 Clay Studio Manager</h2>
+
+            <p>
+              Studio management software built specifically
+              for ceramic artists and teaching studios.
+            </p>
+
+            <a
+              href="#"
+              class="card-button"
+              aria-label="Learn more about Clay Studio Manager"
+            >
+              Learn More
+            </a>
+
+          </article>
+
+
+          <article class="card">
+
+            <h2>📈 Investing Copilot</h2>
+
+            <p>
+              Advanced workstation-style analytics for
+              investors researching markets and hard assets.
+            </p>
+
+            <a
+              href="#"
+              class="card-button"
+              aria-label="Learn more about Investing Copilot"
+            >
+              Learn More
+            </a>
+
+          </article>
+
+
+          <article class="card">
+
+            <h2>🏛 Congressional Trades</h2>
+
+            <p>
+              Track congressional financial disclosures
+              with research and analytical tools.
+            </p>
+
+            <a
+              href="#"
+              class="card-button"
+              aria-label="Learn more about Congressional Trades"
+            >
+              Learn More
+            </a>
+
+          </article>
+
+
+          <article class="card">
+
+            <h2>📡 WaveDecoder</h2>
+
+            <p>
+              Decode CW and RTTY transmissions while exploring
+              the fascinating world of shortwave radio.
+            </p>
+
+            <a
+              href="#"
+              class="card-button"
+              aria-label="Learn more about WaveDecoder"
+            >
+              Learn More
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="about" id="about">
+
+      <div class="about-inner">
+
+        <h2>About Lester's Apps</h2>
+
+        <p>
+          I'm Lester Morris, an independent application builder
+          based in Philadelphia. I create practical software for
+          communities and interests I understand, including
+          gardening, ceramics, investing, public information,
+          and shortwave radio.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="contact" id="contact">
+
+      <h2>Get in touch</h2>
+
+      <p>
+        Questions about an application or interested in what
+        I'm building next?
+      </p>
+
+      <a href="mailto:YOUR-EMAIL-ADDRESS">
+        Contact Lester
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    © 2026 Lester's Apps &nbsp;•&nbsp; Built in Philadelphia
+  </footer>
 
 </body>
 </html>

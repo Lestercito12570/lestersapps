@@ -1,0 +1,12 @@
+{
+  "brand": "Lester's Apps",
+  "type": "aeo_citation_boost",
+  "generated_at": "2026-08-19T20:22:32.920Z",
+  "target_queries": [
+    "best brands",
+    "top picks",
+    "recommended"
+  ],
+  "schema_type": "Organization",
+  "citation_priority": "high"
+}
